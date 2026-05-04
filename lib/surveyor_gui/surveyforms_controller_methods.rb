@@ -57,7 +57,7 @@ module SurveyorGui
     def update
       @title = "Update Survey"
       @surveyform = Surveyform.includes(:survey_sections).find(params[:surveyform][:id])
-      if @surveyform.update_attributes(surveyforms_params)
+      if @surveyform.update(surveyforms_params)
         flash[:notice] = "Successfully updated surveyform."
         redirect_to :action=>:index
       else
@@ -105,7 +105,7 @@ module SurveyorGui
         @question_no = 0
         render "_survey_section_fields" , :layout=> false
       else
-        render :nothing=> true
+        head :ok
       end
     end
 
@@ -133,7 +133,7 @@ module SurveyorGui
         render :new, :layout=>false
         return true
       end
-      render :nothing=>true
+      head :ok
       return false
     end
 
@@ -143,7 +143,7 @@ module SurveyorGui
       if session[:cut_section]
         _continue_paste_section
       else
-        render :nothing=>true
+        head :ok
       end
     end
 
@@ -178,7 +178,7 @@ module SurveyorGui
         session[session_id]=nil
         render :new, :layout=>false
       else
-        render :nothing=>true
+        head :ok
         return false
       end
     end
@@ -193,7 +193,7 @@ module SurveyorGui
         render :new, :layout=>false
         return true
       end
-      render :nothing=>true
+      head :ok
       return false
     end
 
@@ -222,7 +222,7 @@ module SurveyorGui
           session[:cut_question]=nil
           render :new, :layout=>false
         else
-          render :nothing=>true
+          head :ok
           return false
         end
       end

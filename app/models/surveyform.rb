@@ -94,7 +94,7 @@ class QuestionSorter
     old_section_id        = question.survey_section_id
     
     if old_display_order != new_display_order || old_section_id != new_section_id
-      question.update_attributes!(
+      question.update!(
         display_order:      new_display_order,
         survey_section_id:  new_section_id
       )

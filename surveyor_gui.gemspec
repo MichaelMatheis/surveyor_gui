@@ -1,63 +1,87 @@
-$:.push File.expand_path("../lib", __FILE__)
+# -*- encoding: utf-8 -*-
+# stub: surveyor_gui 0.1.4 ruby lib
 
-# Maintain your gem's version:
-require "surveyor_gui/version"
-
-# Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "surveyor_gui"
-  s.version     = SurveyorGui::VERSION
-  s.authors     = ["Kevin Jay"]
-  s.email       = ["kjayma@gmail.com"]
-  s.homepage    =  %q{http://github.com/kjayma/surveyor_gui}
-  s.post_install_message = %q{Thanks for installing surveyor_gui! The time has come to run the surveyor_gui generator and migrate your database, even if you are upgrading.}
-  s.summary     = "A Rails gem to supply a front-end and reporting capability to the Surveyor gem."
+  s.name = "surveyor_gui".freeze
+  s.version = "0.1.4"
 
-  #s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib".freeze]
+  s.authors = ["Kevin Jay".freeze]
+  s.date = "2026-05-02"
+  s.email = ["kjayma@gmail.com".freeze]
+  s.files = [".gitignore".freeze, ".idea/inspectionProfiles/Project_Default.xml".freeze, ".travis.yml".freeze, "CHANGELOG.md".freeze, "Gemfile".freeze, "LICENSE".freeze, "MIT-LICENSE".freeze, "README.md".freeze, "Rakefile".freeze, "app/controllers/surveyor_controller.rb".freeze, "app/controllers/surveyor_gui/answers_controller.rb".freeze, "app/controllers/surveyor_gui/application_controller.rb".freeze, "app/controllers/surveyor_gui/dependencys_controller.rb".freeze, "app/controllers/surveyor_gui/question_groups_controller.rb".freeze, "app/controllers/surveyor_gui/questions_controller.rb".freeze, "app/controllers/surveyor_gui/reports_controller.rb".freeze, "app/controllers/surveyor_gui/responses_controller.rb".freeze, "app/controllers/surveyor_gui/survey_controller.rb".freeze, "app/controllers/surveyor_gui/survey_sections_controller.rb".freeze, "app/controllers/surveyor_gui/surveyforms_controller.rb".freeze, "app/facades/report_formatter.rb".freeze, "app/facades/report_preview_wrapper.rb".freeze, "app/facades/report_response_generator.rb".freeze, "app/helpers/surveyor_gui/application_helper.rb".freeze, "app/helpers/surveyor_gui/dependencys_helper.rb".freeze, "app/helpers/surveyor_gui/question_groups_helper.rb".freeze, "app/helpers/surveyor_gui/questions_helper.rb".freeze, "app/helpers/surveyor_gui/reports_helper.rb".freeze, "app/helpers/surveyor_gui/survey_sections_helper.rb".freeze, "app/helpers/surveyor_gui/surveyforms_helper.rb".freeze, "app/helpers/surveyor_helper.rb".freeze, "app/inputs/currency_input.rb".freeze, "app/inputs/date_picker_input.rb".freeze, "app/inputs/datetime_picker_input.rb".freeze, "app/inputs/percent_input.rb".freeze, "app/inputs/time_picker_input.rb".freeze, "app/mailers/.gitkeep".freeze, "app/models/.gitkeep".freeze, "app/models/answer.rb".freeze, "app/models/application_record.rb".freeze, "app/models/column.rb".freeze, "app/models/dependency.rb".freeze, "app/models/dependency_condition.rb".freeze, "app/models/permitted_params_decorator.rb".freeze, "app/models/question.rb".freeze, "app/models/question_group.rb".freeze, "app/models/question_group_tracker.rb".freeze, "app/models/question_type.rb".freeze, "app/models/response.rb".freeze, "app/models/response_set.rb".freeze, "app/models/row.rb".freeze, "app/models/survey.rb".freeze, "app/models/survey_section.rb".freeze, "app/models/surveyform.rb".freeze, "app/uploaders/blob_uploader.rb".freeze, "app/views/layouts/surveyor_gui/application.html.erb".freeze, "app/views/layouts/surveyor_gui/surveyor_gui_blank.html.erb".freeze, "app/views/layouts/surveyor_gui/surveyor_gui_default.html.erb".freeze, "app/views/layouts/surveyor_gui/surveyor_modified.html.erb".freeze, "app/views/partials/_answer.html.haml".freeze, "app/views/partials/_question.html.haml".freeze, "app/views/partials/_question_group.html.haml".freeze, "app/views/partials/_section.html.haml".freeze, "app/views/surveyor/edit.html.haml".freeze, "app/views/surveyor_gui/dependencys/_column.html.erb".freeze, "app/views/surveyor_gui/dependencys/_dependency.html.haml".freeze, "app/views/surveyor_gui/dependencys/_dependency_condition_fields.html.haml".freeze, "app/views/surveyor_gui/dependencys/_form.html.haml".freeze, "app/views/surveyor_gui/dependencys/blank.html.erb".freeze, "app/views/surveyor_gui/dependencys/edit.html.erb".freeze, "app/views/surveyor_gui/dependencys/new.html.erb".freeze, "app/views/surveyor_gui/partials/_url_helpers.html.erb".freeze, "app/views/surveyor_gui/question_groups/_form.html.erb".freeze, "app/views/surveyor_gui/question_groups/_group_inline_field.html.haml".freeze, "app/views/surveyor_gui/question_groups/_group_inline_fields.html.haml".freeze, "app/views/surveyor_gui/question_groups/blank.html.erb".freeze, "app/views/surveyor_gui/question_groups/edit.html.erb".freeze, "app/views/surveyor_gui/question_groups/new.html.erb".freeze, "app/views/surveyor_gui/questions/_answer_fields.html.erb".freeze, "app/views/surveyor_gui/questions/_answer_options.html.haml".freeze, "app/views/surveyor_gui/questions/_form.html.haml".freeze, "app/views/surveyor_gui/questions/_grid_dropdown_columns.html.erb".freeze, "app/views/surveyor_gui/questions/_grid_dropdown_fields.html.erb".freeze, "app/views/surveyor_gui/questions/_grid_dropdown_fields.html.haml".freeze, "app/views/surveyor_gui/questions/_grid_fields.html.haml".freeze, "app/views/surveyor_gui/questions/_no_picks.html.haml".freeze, "app/views/surveyor_gui/questions/_pick.html".freeze, "app/views/surveyor_gui/questions/_picks.html.erb".freeze, "app/views/surveyor_gui/questions/blank.html.erb".freeze, "app/views/surveyor_gui/questions/edit.html.erb".freeze, "app/views/surveyor_gui/questions/new.html.haml".freeze, "app/views/surveyor_gui/reports/_graphs.html.haml".freeze, "app/views/surveyor_gui/reports/_grid.html.haml".freeze, "app/views/surveyor_gui/reports/_grid_dropdown.html.haml".freeze, "app/views/surveyor_gui/reports/_repeater.html.haml".freeze, "app/views/surveyor_gui/reports/_show_report.html.haml".freeze, "app/views/surveyor_gui/reports/_single_question.html.haml".freeze, "app/views/surveyor_gui/reports/show.html.erb".freeze, "app/views/surveyor_gui/responses/_grid.html.haml".freeze, "app/views/surveyor_gui/responses/_grid_dropdown.html.haml".freeze, "app/views/surveyor_gui/responses/_repeater.html.haml".freeze, "app/views/surveyor_gui/responses/_survey_results.html.haml".freeze, "app/views/surveyor_gui/responses/index.html.haml".freeze, "app/views/surveyor_gui/responses/show.html.haml".freeze, "app/views/surveyor_gui/shared/_grid_comments.html.haml".freeze, "app/views/surveyor_gui/shared/_modal.html.haml".freeze, "app/views/surveyor_gui/shared/_new_line.html.haml".freeze, "app/views/surveyor_gui/shared/_pick_comments.html.haml".freeze, "app/views/surveyor_gui/shared/_question_number.html.haml".freeze, "app/views/surveyor_gui/shared/_report_data.html.haml".freeze, "app/views/surveyor_gui/shared/_stars_report_data.html.haml".freeze, "app/views/surveyor_gui/survey_sections/_form.html.haml".freeze, "app/views/surveyor_gui/survey_sections/blank.html.erb".freeze, "app/views/surveyor_gui/survey_sections/edit.html.erb".freeze, "app/views/surveyor_gui/survey_sections/new.html.erb".freeze, "app/views/surveyor_gui/surveyforms/_form.html.haml".freeze, "app/views/surveyor_gui/surveyforms/_question_field.html.erb".freeze, "app/views/surveyor_gui/surveyforms/_question_group.html.haml".freeze, "app/views/surveyor_gui/surveyforms/_question_group_fields.html.erb".freeze, "app/views/surveyor_gui/surveyforms/_question_name_and_number.html.erb".freeze, "app/views/surveyor_gui/surveyforms/_question_section.html.erb".freeze, "app/views/surveyor_gui/surveyforms/_question_wrapper.html.erb".freeze, "app/views/surveyor_gui/surveyforms/_survey_section_fields.html.haml".freeze, "app/views/surveyor_gui/surveyforms/clone_survey.html.erb".freeze, "app/views/surveyor_gui/surveyforms/edit.html.erb".freeze, "app/views/surveyor_gui/surveyforms/index.html.haml".freeze, "app/views/surveyor_gui/surveyforms/new.html.erb".freeze, "app/views/surveyor_gui/surveyforms/show.html.erb".freeze, "config.ru".freeze, "config/boot.rb".freeze, "config/environment.rb".freeze, "config/routes.rb".freeze, "db/migrate/20140307204049_add_template_to_surveys.rb".freeze, "db/migrate/20140307235607_add_test_data_to_response_sets.rb".freeze, "db/migrate/20140308171947_add_original_choice_to_answers.rb".freeze, "db/migrate/20140308172118_add_blob_to_responses.rb".freeze, "db/migrate/20140308172417_add_modifiable_to_survey_section.rb".freeze, "db/migrate/20140308174532_add_modifiable_to_question.rb".freeze, "db/migrate/20140308175305_add_dynamically_generate_to_questions.rb".freeze, "db/migrate/20140311032923_add_dummy_blob_to_questions.rb".freeze, "db/migrate/20140311160609_add_dynamic_source_to_questions.rb".freeze, "db/migrate/20140311161714_add_report_code_to_questions.rb".freeze, "db/migrate/20140530181134_add_is_comment_to_questions.rb".freeze, "db/migrate/20140531012006_add_is_comment_to_answers.rb".freeze, "db/migrate/20140531225529_create_rows.rb".freeze, "db/migrate/20140601011151_create_columns.rb".freeze, "db/migrate/20140602030330_add_column_id_to_answers.rb".freeze, "db/migrate/20140603155606_add_column_id_to_responses.rb".freeze, "db/migrate/20140606023527_add_column_id_to_dependency_conditions.rb".freeze, "db/migrate/20140815165307_add_user_id_to_survey.rb".freeze, "db/migrate/20140815165308_add_choices_key_to_columns.rb".freeze, "lib/assets/.gitkeep".freeze, "lib/assets/images/addicon.png".freeze, "lib/assets/images/datepicker.gif".freeze, "lib/assets/images/delete.gif".freeze, "lib/assets/images/delete.png".freeze, "lib/assets/images/images/border.png".freeze, "lib/assets/images/images/controls.png".freeze, "lib/assets/images/images/loading.gif".freeze, "lib/assets/images/images/loading_background.png".freeze, "lib/assets/images/images/overlay.png".freeze, "lib/assets/images/rails.png".freeze, "lib/assets/images/star.gif".freeze, "lib/assets/javascripts/.gitkeep".freeze, "lib/assets/javascripts/surveyor_gui/ajaxlinks.js.erb".freeze, "lib/assets/javascripts/surveyor_gui/jquery.MetaData.js".freeze, "lib/assets/javascripts/surveyor_gui/jquery.blockUI.js".freeze, "lib/assets/javascripts/surveyor_gui/jquery.rating.js".freeze, "lib/assets/javascripts/surveyor_gui/jquery.validate.js".freeze, "lib/assets/javascripts/surveyor_gui/surveyor_add_ons.js".freeze, "lib/assets/javascripts/surveyor_gui/surveyor_gui.js".freeze, "lib/assets/javascripts/surveyor_gui/surveyor_gui.js.erb".freeze, "lib/assets/stylesheets/.gitkeep".freeze, "lib/assets/stylesheets/surveyor_gui/jquery.rating.css.erb".freeze, "lib/assets/stylesheets/surveyor_gui/surveyor_add_ons.css".freeze, "lib/assets/stylesheets/surveyor_gui/surveyor_gui.sass".freeze, "lib/enumerable_extenders.rb".freeze, "lib/generators/surveyor_gui/install_generator.rb".freeze, "lib/generators/surveyor_gui/templates/app/assets/javascripts/surveyor_add_ons.js".freeze, "lib/generators/surveyor_gui/templates/app/assets/javascripts/surveyor_gui_all.js".freeze, "lib/generators/surveyor_gui/templates/app/assets/stylesheets/surveyor_add_ons.css.sass".freeze, "lib/generators/surveyor_gui/templates/app/assets/stylesheets/surveyor_gui_all.css.sass".freeze, "lib/generators/surveyor_gui/templates/app/helpers/surveyor_helper.rb".freeze, "lib/generators/surveyor_gui/templates/app/models/response_set_user.rb".freeze, "lib/generators/surveyor_gui/templates/app/views/layouts/surveyor_gui/surveyor_gui_default.html.erb".freeze, "lib/generators/surveyor_gui/templates/config/initializers/simple_form.rb".freeze, "lib/generators/surveyor_gui/templates/config/locales/en.yml".freeze, "lib/surveyor_gui.rb".freeze, "lib/surveyor_gui/engine.rb".freeze, "lib/surveyor_gui/helpers/surveyor_helper_methods.rb".freeze, "lib/surveyor_gui/models/answer_methods.rb".freeze, "lib/surveyor_gui/models/column_methods.rb".freeze, "lib/surveyor_gui/models/dependency_condition_methods.rb".freeze, "lib/surveyor_gui/models/dependency_methods.rb".freeze, "lib/surveyor_gui/models/question_and_group_shared_methods.rb".freeze, "lib/surveyor_gui/models/question_group_methods.rb".freeze, "lib/surveyor_gui/models/question_methods.rb".freeze, "lib/surveyor_gui/models/question_type_methods.rb".freeze, "lib/surveyor_gui/models/response_methods.rb".freeze, "lib/surveyor_gui/models/response_set_methods.rb".freeze, "lib/surveyor_gui/models/row_methods.rb".freeze, "lib/surveyor_gui/models/survey_methods.rb".freeze, "lib/surveyor_gui/models/survey_section_methods.rb".freeze, "lib/surveyor_gui/surveyforms_controller_methods.rb".freeze, "lib/surveyor_gui/version.rb".freeze, "lib/tasks/.gitkeep".freeze, "lib/tasks/surveyor_gui_tasks.rake".freeze, "lib/templates/erb/scaffold/_form.html.erb".freeze, "spec/controllers/surveyforms_controller_spec.rb".freeze, "spec/controllers/surveyor_controller_spec.rb".freeze, "spec/factories.rb".freeze, "spec/features/create_survey_spec.rb".freeze, "spec/features/dependencies_spec.rb".freeze, "spec/features/make_and_take_spec.rb".freeze, "spec/features/rearrange_survey_spec.rb".freeze, "spec/features/ui_spec.rb".freeze, "spec/fixtures/REDCapDemoDatabase_DataDictionary.csv".freeze, "spec/fixtures/chinese_survey.rb".freeze, "spec/fixtures/everything.rb".freeze, "spec/fixtures/favorites-ish.rb".freeze, "spec/fixtures/favorites.rb".freeze, "spec/fixtures/feelings.rb".freeze, "spec/fixtures/lifestyle.rb".freeze, "spec/fixtures/numbers.rb".freeze, "spec/fixtures/redcap_new_headers.csv".freeze, "spec/fixtures/redcap_siblings.csv".freeze, "spec/fixtures/redcap_whitespace.csv".freeze, "spec/helpers/formtastic_custom_input_spec.rb".freeze, "spec/helpers/surveyor_helper_spec.rb".freeze, "spec/lib/common_spec.rb".freeze, "spec/lib/parser_spec.rb".freeze, "spec/lib/rake_kitchen_sink.rb".freeze, "spec/lib/redcap_parser_spec.rb".freeze, "spec/lib/unparser_spec.rb".freeze, "spec/models/answer_spec.rb".freeze, "spec/models/dependency_condition_spec.rb".freeze, "spec/models/dependency_spec.rb".freeze, "spec/models/question_group_spec.rb".freeze, "spec/models/question_spec.rb".freeze, "spec/models/response_set_spec.rb".freeze, "spec/models/response_spec.rb".freeze, "spec/models/survey_section_spec.rb".freeze, "spec/models/survey_spec.rb".freeze, "spec/models/surveyor_gui/question_spec.rb".freeze, "spec/models/surveyor_gui/question_type_spec.rb".freeze, "spec/models/validation_condition_spec.rb".freeze, "spec/models/validation_spec.rb".freeze, "spec/spec.opts".freeze, "spec/spec_helper.rb".freeze, "spec/support/general_purpose_helpers.rb".freeze, "spec/support/scenario_outline_helper.rb".freeze, "spec/support/shared.rb".freeze, "spec/support/surveyforms_creation_helpers.rb".freeze, "spec/support/surveyforms_rearrangement_helpers.rb".freeze, "spec/support/surveyor_api_helpers.rb".freeze, "spec/support/surveyor_ui_helpers.rb".freeze, "spec/support/wait_for_ajax.rb".freeze, "spec/views/questions/edit.html.erb_spec.rb".freeze, "spec/views/surveyforms/edit.html.erb_spec.rb".freeze, "surveyor_gui.gemspec".freeze, "test/dummy/README.rdoc".freeze, "test/dummy/Rakefile".freeze, "test/dummy/app/assets/javascripts/application.js".freeze, "test/dummy/app/assets/stylesheets/application.css".freeze, "test/dummy/app/controllers/application_controller.rb".freeze, "test/dummy/app/helpers/application_helper.rb".freeze, "test/dummy/app/mailers/.gitkeep".freeze, "test/dummy/app/models/.gitkeep".freeze, "test/dummy/app/views/layouts/application.html.erb".freeze, "test/dummy/config.ru".freeze, "test/dummy/config/application.rb".freeze, "test/dummy/config/boot.rb".freeze, "test/dummy/config/database.yml".freeze, "test/dummy/config/environment.rb".freeze, "test/dummy/config/environments/development.rb".freeze, "test/dummy/config/environments/production.rb".freeze, "test/dummy/config/environments/test.rb".freeze, "test/dummy/config/initializers/backtrace_silencers.rb".freeze, "test/dummy/config/initializers/inflections.rb".freeze, "test/dummy/config/initializers/mime_types.rb".freeze, "test/dummy/config/initializers/secret_token.rb".freeze, "test/dummy/config/initializers/session_store.rb".freeze, "test/dummy/config/initializers/wrap_parameters.rb".freeze, "test/dummy/config/locales/en.yml".freeze, "test/dummy/config/routes.rb".freeze, "test/dummy/lib/assets/.gitkeep".freeze, "test/dummy/log/.gitkeep".freeze, "test/dummy/public/404.html".freeze, "test/dummy/public/422.html".freeze, "test/dummy/public/500.html".freeze, "test/dummy/public/favicon.ico".freeze, "test/dummy/script/rails".freeze, "test/surveyor-gui_test.rb".freeze, "test/test_helper.rb".freeze, "tmp/cache/assets/CF0/DA0/sprockets%2Fd7d5b37686831d37c4dd75e645f5e016".freeze, "tmp/cache/assets/E25/4C0/sprockets%2Fde2fd9fd11c04a582cdbbe3d84a35ae6".freeze, "vendor/assets/stylesheets/.gitkeep".freeze, "vendor/assets/stylesheets/custom.sass".freeze, "vendor/plugins/.gitkeep".freeze]
+  s.homepage = "http://github.com/kjayma/surveyor_gui".freeze
+  s.post_install_message = "Thanks for installing surveyor_gui! The time has come to run the surveyor_gui generator and migrate your database, even if you are upgrading.".freeze
+  s.rubygems_version = "3.1.6".freeze
+  s.summary = "A Rails gem to supply a front-end and reporting capability to the Surveyor gem.".freeze
+  s.test_files = ["spec/controllers/surveyforms_controller_spec.rb".freeze, "spec/controllers/surveyor_controller_spec.rb".freeze, "spec/factories.rb".freeze, "spec/features/create_survey_spec.rb".freeze, "spec/features/dependencies_spec.rb".freeze, "spec/features/make_and_take_spec.rb".freeze, "spec/features/rearrange_survey_spec.rb".freeze, "spec/features/ui_spec.rb".freeze, "spec/fixtures/REDCapDemoDatabase_DataDictionary.csv".freeze, "spec/fixtures/chinese_survey.rb".freeze, "spec/fixtures/everything.rb".freeze, "spec/fixtures/favorites-ish.rb".freeze, "spec/fixtures/favorites.rb".freeze, "spec/fixtures/feelings.rb".freeze, "spec/fixtures/lifestyle.rb".freeze, "spec/fixtures/numbers.rb".freeze, "spec/fixtures/redcap_new_headers.csv".freeze, "spec/fixtures/redcap_siblings.csv".freeze, "spec/fixtures/redcap_whitespace.csv".freeze, "spec/helpers/formtastic_custom_input_spec.rb".freeze, "spec/helpers/surveyor_helper_spec.rb".freeze, "spec/lib/common_spec.rb".freeze, "spec/lib/parser_spec.rb".freeze, "spec/lib/rake_kitchen_sink.rb".freeze, "spec/lib/redcap_parser_spec.rb".freeze, "spec/lib/unparser_spec.rb".freeze, "spec/models/answer_spec.rb".freeze, "spec/models/dependency_condition_spec.rb".freeze, "spec/models/dependency_spec.rb".freeze, "spec/models/question_group_spec.rb".freeze, "spec/models/question_spec.rb".freeze, "spec/models/response_set_spec.rb".freeze, "spec/models/response_spec.rb".freeze, "spec/models/survey_section_spec.rb".freeze, "spec/models/survey_spec.rb".freeze, "spec/models/surveyor_gui/question_spec.rb".freeze, "spec/models/surveyor_gui/question_type_spec.rb".freeze, "spec/models/validation_condition_spec.rb".freeze, "spec/models/validation_spec.rb".freeze, "spec/spec.opts".freeze, "spec/spec_helper.rb".freeze, "spec/support/general_purpose_helpers.rb".freeze, "spec/support/scenario_outline_helper.rb".freeze, "spec/support/shared.rb".freeze, "spec/support/surveyforms_creation_helpers.rb".freeze, "spec/support/surveyforms_rearrangement_helpers.rb".freeze, "spec/support/surveyor_api_helpers.rb".freeze, "spec/support/surveyor_ui_helpers.rb".freeze, "spec/support/wait_for_ajax.rb".freeze, "spec/views/questions/edit.html.erb_spec.rb".freeze, "spec/views/surveyforms/edit.html.erb_spec.rb".freeze, "test/dummy/README.rdoc".freeze, "test/dummy/Rakefile".freeze, "test/dummy/app/assets/javascripts/application.js".freeze, "test/dummy/app/assets/stylesheets/application.css".freeze, "test/dummy/app/controllers/application_controller.rb".freeze, "test/dummy/app/helpers/application_helper.rb".freeze, "test/dummy/app/mailers/.gitkeep".freeze, "test/dummy/app/models/.gitkeep".freeze, "test/dummy/app/views/layouts/application.html.erb".freeze, "test/dummy/config.ru".freeze, "test/dummy/config/application.rb".freeze, "test/dummy/config/boot.rb".freeze, "test/dummy/config/database.yml".freeze, "test/dummy/config/environment.rb".freeze, "test/dummy/config/environments/development.rb".freeze, "test/dummy/config/environments/production.rb".freeze, "test/dummy/config/environments/test.rb".freeze, "test/dummy/config/initializers/backtrace_silencers.rb".freeze, "test/dummy/config/initializers/inflections.rb".freeze, "test/dummy/config/initializers/mime_types.rb".freeze, "test/dummy/config/initializers/secret_token.rb".freeze, "test/dummy/config/initializers/session_store.rb".freeze, "test/dummy/config/initializers/wrap_parameters.rb".freeze, "test/dummy/config/locales/en.yml".freeze, "test/dummy/config/routes.rb".freeze, "test/dummy/lib/assets/.gitkeep".freeze, "test/dummy/log/.gitkeep".freeze, "test/dummy/public/404.html".freeze, "test/dummy/public/422.html".freeze, "test/dummy/public/500.html".freeze, "test/dummy/public/favicon.ico".freeze, "test/dummy/script/rails".freeze, "test/surveyor-gui_test.rb".freeze, "test/test_helper.rb".freeze]
 
-  s.files = `git ls-files`.split("\n") - ['irb']
-  s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
-  # s.executables = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+  s.installed_by_version = "3.1.6" if s.respond_to? :installed_by_version
 
-  s.add_dependency 'rails', '~> 6.0'
-  s.add_dependency 'dynamic_form', '~> 1.1.4'
-  s.add_dependency 'jquery-rails'
-  s.add_dependency 'jquery-ui-rails'
-  s.add_dependency 'bootstrap-sass', '~> 3.3'
+  if s.respond_to? :specification_version then
+    s.specification_version = 4
+  end
 
-  s.add_development_dependency "sqlite3", '~> 1.3.0'
-
-  s.add_development_dependency 'sass-rails'
-  s.add_development_dependency 'uglifier', '>= 1.0.3'
-  s.add_development_dependency('rspec-rails', '~> 3.0')
-
-  # tests fail with capybara 3...lots of custom rspec shenanigans that result in many failing tests...failing rspec
-  # customizations will need to be addressed before upgrading :(
-  s.add_development_dependency('capybara', '~> 2.3')
-  s.add_development_dependency('launchy', '~> 2.4.2')
-  s.add_development_dependency('poltergeist')
-  s.add_development_dependency('puma')
-  s.add_development_dependency('capybara-webkit', "= 1.15.1")
-  s.add_development_dependency('json_spec', '~> 1.1.1')
-  s.add_development_dependency('factory_girl', '~> 4.4.0')
-  s.add_development_dependency('database_cleaner')
-  s.add_development_dependency('rspec-retry', "= 0.4.4")
-  s.add_development_dependency('phantomjs', '~> 2.1')
-  s.add_development_dependency('cliver', '~> 0.3')
-  s.add_development_dependency('rails-controller-testing')
-
-  # s.add_dependency 'surveyor', '~> 1.4.1.pre'
-
-  s.add_dependency 'will_paginate'
-
-  s.add_dependency 'simple_form'
-  s.add_dependency 'carrierwave'
-  s.add_dependency 'colorbox-rails', '~> 0.1.1'
-  s.add_dependency 'jquery-form-rails', '~> 1.0.1'
-  s.add_dependency 'deep_cloneable'
-  s.add_dependency 'lazy_high_charts'
-
-  # TODO The editor fails when upgrading to the new 5.0 version.  So will need to be fixed when upgrading the whole project
-  s.add_dependency 'tinymce-rails', '= 4.8.3'
+  if s.respond_to? :add_runtime_dependency then
+    s.add_runtime_dependency(%q<rails>.freeze, [">= 6.0", "< 6.2"])
+    s.add_runtime_dependency(%q<dynamic_form>.freeze, ["~> 1.1.4"])
+    s.add_runtime_dependency(%q<jquery-rails>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<jquery-ui-rails>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<bootstrap-sass>.freeze, ["~> 3.3"])
+    s.add_development_dependency(%q<sqlite3>.freeze, ["~> 1.3.0"])
+    s.add_development_dependency(%q<sass-rails>.freeze, [">= 0"])
+    s.add_development_dependency(%q<uglifier>.freeze, [">= 1.0.3"])
+    s.add_development_dependency(%q<rspec-rails>.freeze, ["~> 3.0"])
+    s.add_development_dependency(%q<capybara>.freeze, ["~> 2.3"])
+    s.add_development_dependency(%q<launchy>.freeze, ["~> 2.4.2"])
+    s.add_development_dependency(%q<poltergeist>.freeze, [">= 0"])
+    s.add_development_dependency(%q<puma>.freeze, [">= 0"])
+    s.add_development_dependency(%q<capybara-webkit>.freeze, ["= 1.15.1"])
+    s.add_development_dependency(%q<json_spec>.freeze, ["~> 1.1.1"])
+    s.add_development_dependency(%q<factory_girl>.freeze, ["~> 4.4.0"])
+    s.add_development_dependency(%q<database_cleaner>.freeze, [">= 0"])
+    s.add_development_dependency(%q<rspec-retry>.freeze, ["= 0.4.4"])
+    s.add_development_dependency(%q<phantomjs>.freeze, ["~> 2.1"])
+    s.add_development_dependency(%q<cliver>.freeze, ["~> 0.3"])
+    s.add_development_dependency(%q<rails-controller-testing>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<will_paginate>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<simple_form>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<carrierwave>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<colorbox-rails>.freeze, ["~> 0.1.1"])
+    s.add_runtime_dependency(%q<jquery-form-rails>.freeze, ["~> 1.0.1"])
+    s.add_runtime_dependency(%q<deep_cloneable>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<lazy_high_charts>.freeze, [">= 0"])
+    s.add_runtime_dependency(%q<tinymce-rails>.freeze, ["= 4.8.3"])
+  else
+    s.add_dependency(%q<rails>.freeze, [">= 6.0", "< 6.2"])
+    s.add_dependency(%q<dynamic_form>.freeze, ["~> 1.1.4"])
+    s.add_dependency(%q<jquery-rails>.freeze, [">= 0"])
+    s.add_dependency(%q<jquery-ui-rails>.freeze, [">= 0"])
+    s.add_dependency(%q<bootstrap-sass>.freeze, ["~> 3.3"])
+    s.add_dependency(%q<sqlite3>.freeze, ["~> 1.3.0"])
+    s.add_dependency(%q<sass-rails>.freeze, [">= 0"])
+    s.add_dependency(%q<uglifier>.freeze, [">= 1.0.3"])
+    s.add_dependency(%q<rspec-rails>.freeze, ["~> 3.0"])
+    s.add_dependency(%q<capybara>.freeze, ["~> 2.3"])
+    s.add_dependency(%q<launchy>.freeze, ["~> 2.4.2"])
+    s.add_dependency(%q<poltergeist>.freeze, [">= 0"])
+    s.add_dependency(%q<puma>.freeze, [">= 0"])
+    s.add_dependency(%q<capybara-webkit>.freeze, ["= 1.15.1"])
+    s.add_dependency(%q<json_spec>.freeze, ["~> 1.1.1"])
+    s.add_dependency(%q<factory_girl>.freeze, ["~> 4.4.0"])
+    s.add_dependency(%q<database_cleaner>.freeze, [">= 0"])
+    s.add_dependency(%q<rspec-retry>.freeze, ["= 0.4.4"])
+    s.add_dependency(%q<phantomjs>.freeze, ["~> 2.1"])
+    s.add_dependency(%q<cliver>.freeze, ["~> 0.3"])
+    s.add_dependency(%q<rails-controller-testing>.freeze, [">= 0"])
+    s.add_dependency(%q<will_paginate>.freeze, [">= 0"])
+    s.add_dependency(%q<simple_form>.freeze, [">= 0"])
+    s.add_dependency(%q<carrierwave>.freeze, [">= 0"])
+    s.add_dependency(%q<colorbox-rails>.freeze, ["~> 0.1.1"])
+    s.add_dependency(%q<jquery-form-rails>.freeze, ["~> 1.0.1"])
+    s.add_dependency(%q<deep_cloneable>.freeze, [">= 0"])
+    s.add_dependency(%q<lazy_high_charts>.freeze, [">= 0"])
+    s.add_dependency(%q<tinymce-rails>.freeze, ["= 4.8.3"])
+  end
 end

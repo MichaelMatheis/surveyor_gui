@@ -71,7 +71,7 @@ class SurveyorGui::QuestionGroupsController < ApplicationController
     @question_group = QuestionGroup.includes(:questions).find(params[:id])
     @survey_section = @question_group.questions.first.survey_section
 
-    if @question_group.update_attributes(question_group_params)
+    if @question_group.update(question_group_params)
 
       redirect_to surveyor_gui.edit_surveyform_url(@survey_section.survey)
 

@@ -39,7 +39,7 @@ class SurveyorGui::DependencysController < ApplicationController
       update_object = @question
       update_params = question_params
     end
-    if update_object.update_attributes(update_params)
+    if update_object.update(update_params)
       update_object.dependency.destroy if update_object.dependency.dependency_conditions.blank?
 
       @question_no = 0
@@ -59,7 +59,7 @@ class SurveyorGui::DependencysController < ApplicationController
     else
       question.dependency.destroy
     end
-    render :nothing=>true
+    head :ok
   end
 
   def render_dependency_conditions_partial

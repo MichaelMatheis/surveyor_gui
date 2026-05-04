@@ -67,10 +67,10 @@ class SurveyorGui::QuestionsController < ApplicationController
         end
       end
     end
-    if @question.update_attributes(qparams)
+    if @question.update(qparams)
       @question.answers.each_with_index {|a, index| a.destroy if index > 0} if @question.pick == 'none'
       #load any page - if it has no flash errors, the colorbox that contains it will be closed immediately after the page loads
-      render :blank, :layout => 'surveyor_gui/surveyor_gui_blank'
+      render plain: '', layout: false
     else
       render :action => 'edit', :layout => 'surveyor_gui/surveyor_gui_blank'
     end
@@ -83,22 +83,22 @@ class SurveyorGui::QuestionsController < ApplicationController
       return false
     end
     if !question.dependency_conditions.blank?
-      render :text=>"The following questions have logic that depend on this question: \n\n"+question.dependency_conditions.map{|d| " - "+d.dependency.question.text}.join('\n')+"\n\nPlease delete logic before deleting this question.".html_safe
+      render plain: "The following questions have logic that depend on this question: \n\n" + question.dependency_conditions.map { |d| " - " + d.dependency.question.text }.join('\n') + "\n\nPlease delete logic before deleting this question."
       return
     end
     if question.part_of_group?
       question.question_group.questions.each{|q| q.destroy}
-      render :text=>''
+      head :ok
       return
     end
     question.destroy
-    render :text=>''
+    head :ok
   end
 
   def sort
     survey = Surveyform.find(params[:survey_id])
     survey.sort_as_per_array(params)
-    render :nothing => true
+    head :ok
   end
 
   def cut_question
@@ -106,7 +106,7 @@ class SurveyorGui::QuestionsController < ApplicationController
     if q=Question.find(params[:id])
       q.update_attribute(:survey_section_id,nil)
     end
-    redirect_to :back
+    redirect_back(fallback_location: surveyor_gui.surveyforms_path)
   end
 
   def render_answer_fields_partial

@@ -363,7 +363,7 @@ module SurveyorGui
 
       def question_group_attributes=(params)
         if question_group
-          question_group.update_attributes(params.except(:id))
+          question_group.update(params.except(:id))
           @question_group_attributes=params
         else
           QuestionGroup.create!(params)
@@ -374,7 +374,7 @@ module SurveyorGui
         return if destroyed?
         write_attribute(:text, txt)
         if part_of_group? && ( !%w(inline default repeater).include?(question_group.display_type) )
-          question_group.update_attributes(text: txt)
+          question_group.update(text: txt)
         end
         @text = txt
       end
